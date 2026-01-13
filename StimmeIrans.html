@@ -1,0 +1,1782 @@
+<!DOCTYPE html><html lang="de"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iran Awareness | Was passiert gerade im Iran?</title>
+    <meta name="description" content="Informieren Sie sich über die aktuelle Lage im Iran und erfahren Sie, wie Sie helfen können. Learn about the current situation in Iran and how you can help.">
+
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Iran Awareness | Was passiert gerade im Iran?">
+    <meta property="og:description" content="Informieren Sie sich über die aktuelle Lage im Iran und erfahren Sie, wie Sie helfen können.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0A0A0A/FFFFFF?text=Iran+Awareness">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --color-white: #FFFFFF;
+            --color-black: #0A0A0A;
+            --color-charcoal: #1A1A1A;
+            --color-gray-100: #F7F7F7;
+            --color-gray-200: #E5E5E5;
+            --color-gray-300: #D4D4D4;
+            --color-gray-400: #A3A3A3;
+            --color-gray-500: #737373;
+            --color-gray-600: #525252;
+            --color-red: #E63946;
+            --color-red-dark: #C5303C;
+
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --max-width: 1100px;
+            --header-height: 72px;
+
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.6s ease;
+        }
+
+        .dark {
+            --color-white: #0A0A0A;
+            --color-black: #FFFFFF;
+            --color-charcoal: #F5F5F5;
+            --color-gray-100: #1A1A1A;
+            --color-gray-200: #262626;
+            --color-gray-300: #404040;
+            --color-gray-400: #737373;
+            --color-gray-500: #A3A3A3;
+            --color-gray-600: #D4D4D4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+            transition: background-color var(--transition-medium), color var(--transition-medium);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+        p {
+            font-weight: 300;
+            color: var(--color-gray-600);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-gray-200);
+            transition: background-color var(--transition-medium), border-color var(--transition-medium);
+        }
+
+        .dark header {
+            background: rgba(10, 10, 10, 0.85);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--color-black);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 0.875rem;
+            transition: background-color var(--transition-medium), color var(--transition-medium);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--color-gray-500);
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-black);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-red);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            background: var(--color-gray-100);
+            border-radius: 20px;
+            padding: 4px;
+            gap: 2px;
+            transition: background-color var(--transition-medium);
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-gray-500);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-family);
+        }
+
+        .lang-btn.active {
+            background: var(--color-white);
+            color: var(--color-black);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .lang-btn.active {
+            background: var(--color-gray-300);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-black);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: calc(var(--header-height) + 60px) 24px 60px;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(230, 57, 70, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(230, 57, 70, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--color-gray-100);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 32px;
+            color: var(--color-gray-600);
+            transition: background-color var(--transition-medium), color var(--transition-medium);
+        }
+
+        .hero-label-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--color-red);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+            color: var(--color-black);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--color-red);
+            color: var(--color-white);
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        .hero-cta:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(230, 57, 70, 0.4);
+        }
+
+        .hero-cta i {
+            font-size: 0.875rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .hero-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-gray-400);
+            font-size: 0.75rem;
+            font-weight: 400;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .hero-scroll i {
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 24px;
+            background: var(--color-gray-100);
+            transition: background-color var(--transition-medium);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            margin-bottom: 24px;
+            color: var(--color-black);
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .about-content p:last-of-type {
+            margin-bottom: 32px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--color-red);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            font-weight: 400;
+        }
+
+        .about-visual {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--color-black);
+        }
+
+        .about-visual-inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-black) 100%);
+        }
+
+        .about-visual-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image:
+                linear-gradient(var(--color-white) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-white) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .about-visual-icon {
+            font-size: 4rem;
+            color: var(--color-white);
+            opacity: 0.8;
+        }
+
+        /* Kit Section */
+        .kit {
+            padding: 120px 24px;
+        }
+
+        .kit-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .kit-header h2 {
+            margin-bottom: 16px;
+            color: var(--color-black);
+        }
+
+        .kit-header p {
+            font-size: 1rem;
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .kit-card {
+            aspect-ratio: 9/16;
+            background: var(--color-gray-100);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .kit-card-inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .kit-card-1 {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .kit-card-2 {
+            background: linear-gradient(180deg, var(--color-red) 0%, #b82d38 100%);
+        }
+
+        .kit-card-3 {
+            background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+        }
+
+        .kit-card-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .kit-card-content h4 {
+            color: white;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 12px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .kit-card-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .kit-card-lang {
+            position: absolute;
+            bottom: 16px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .kit-card-lang span {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.625rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .kit-download {
+            display: flex;
+            justify-content: center;
+        }
+
+        .kit-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--color-black);
+            color: var(--color-white);
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-family);
+        }
+
+        .kit-download-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 24px;
+            background: var(--color-gray-100);
+            transition: background-color var(--transition-medium);
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 16px;
+            color: var(--color-black);
+        }
+
+        .contact-info > p {
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-gray-500);
+            font-size: 0.9375rem;
+        }
+
+        .contact-detail i {
+            width: 20px;
+            color: var(--color-red);
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: background-color var(--transition-medium);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-black);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-family);
+            background: var(--color-white);
+            color: var(--color-black);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-medium);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--color-red);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-family);
+        }
+
+        .form-submit:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-privacy {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--color-red);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            border-top: 1px solid var(--color-gray-200);
+            transition: border-color var(--transition-medium);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: var(--color-gray-500);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-black);
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--color-gray-100);
+            color: var(--color-gray-500);
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .footer-copyright {
+            font-size: 0.8125rem;
+            color: var(--color-gray-400);
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-fast), visibility var(--transition-fast);
+            padding: 24px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--color-white);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px) scale(0.95);
+            transition: transform var(--transition-fast);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--color-gray-200);
+            position: sticky;
+            top: 0;
+            background: var(--color-white);
+            z-index: 1;
+            transition: background-color var(--transition-medium), border-color var(--transition-medium);
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            color: var(--color-black);
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-500);
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: var(--color-gray-200);
+            color: var(--color-black);
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .modal-body h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--color-black);
+        }
+
+        .modal-body p {
+            margin-bottom: 16px;
+            font-size: 0.9375rem;
+        }
+
+        .modal-body ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+            font-size: 0.9375rem;
+            color: var(--color-gray-600);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background: var(--color-white);
+            padding: 24px;
+            border-bottom: 1px solid var(--color-gray-200);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            font-size: 1rem;
+            color: var(--color-black);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .about-inner,
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-visual {
+                order: -1;
+            }
+
+            .kit-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --header-height: 64px;
+            }
+
+            .hero {
+                padding: calc(var(--header-height) + 40px) 16px 80px;
+            }
+
+            .hero-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about,
+            .kit,
+            .contact {
+                padding: 80px 16px;
+            }
+
+            .about-stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .kit-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 0 auto 48px;
+            }
+
+            .kit-card {
+                aspect-ratio: 9/14;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Custom Alert Modal */
+        .alert-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-fast), visibility var(--transition-fast);
+            padding: 24px;
+        }
+
+        .alert-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .alert-content {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform var(--transition-fast);
+        }
+
+        .alert-modal.active .alert-content {
+            transform: scale(1);
+        }
+
+        .alert-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .alert-icon.success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        .alert-icon.error {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--color-red);
+        }
+
+        .alert-content h4 {
+            margin-bottom: 8px;
+            color: var(--color-black);
+        }
+
+        .alert-content p {
+            margin-bottom: 24px;
+            font-size: 0.9375rem;
+        }
+
+        .alert-btn {
+            padding: 12px 32px;
+            background: var(--color-black);
+            color: var(--color-white);
+            border: none;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-family);
+        }
+
+        .alert-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-hand-fist"></i></div>
+                <span>Iran Awareness</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
+                    <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
+                    <li><a href="#kit" data-de="Kit" data-en="Kit">Kit</a></li>
+                    <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+                </ul>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="de">DE</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
+            <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
+            <li><a href="#kit" data-de="Kit" data-en="Kit">Kit</a></li>
+            <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-label fade-in">
+                <span class="hero-label-dot"></span>
+                <span data-de="Dringende Aufmerksamkeit erforderlich" data-en="Urgent Attention Required">Dringende Aufmerksamkeit erforderlich</span>
+            </div>
+            <h1 class="fade-in delay-1" data-de="Was passiert gerade im Iran?" data-en="What's Happening in Iran Right Now?">Was passiert gerade im Iran?</h1>
+            <p class="hero-subtitle fade-in delay-2" data-de="Millionen von Menschen sind von der Außenwelt abgeschnitten. Das Internet wurde vollständig gesperrt. Die Welt muss hinsehen — und handeln." data-en="Millions of people are cut off from the outside world. The internet has been completely shut down. The world must pay attention — and take action.">
+                Millionen von Menschen sind von der Außenwelt abgeschnitten. Das Internet wurde vollständig gesperrt. Die Welt muss hinsehen — und handeln.
+            </p>
+            <a href="#contact" class="hero-cta fade-in delay-3">
+                <span data-de="Jetzt handeln" data-en="Take Action Now">Jetzt handeln</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-scroll">
+            <span data-de="Mehr erfahren" data-en="Learn more">Mehr erfahren</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-inner">
+            <div class="about-content">
+                <h2 class="fade-in" data-de="Unsere Mission" data-en="Our Mission">Unsere Mission</h2>
+                <p class="fade-in delay-1" data-de="Wir sind eine Gruppe von Aktivisten und Bürgern, die sich dafür einsetzen, die Stimmen der Menschen im Iran hörbar zu machen. In Zeiten, in denen das Internet abgeschaltet wird, ist es unsere Aufgabe, die Welt zu informieren." data-en="We are a group of activists and citizens committed to amplifying the voices of people in Iran. In times when the internet is shut down, it is our mission to inform the world.">
+                    Wir sind eine Gruppe von Aktivisten und Bürgern, die sich dafür einsetzen, die Stimmen der Menschen im Iran hörbar zu machen. In Zeiten, in denen das Internet abgeschaltet wird, ist es unsere Aufgabe, die Welt zu informieren.
+                </p>
+                <p class="fade-in delay-2" data-de="Diese Website dient als zentrale Anlaufstelle für alle, die verstehen wollen, was passiert — und die bereit sind, Maßnahmen zu ergreifen. Gemeinsam können wir Druck auf politische Entscheidungsträger ausüben." data-en="This website serves as a central hub for anyone who wants to understand what's happening — and who is ready to take action. Together, we can put pressure on political decision-makers.">
+                    Diese Website dient als zentrale Anlaufstelle für alle, die verstehen wollen, was passiert — und die bereit sind, Maßnahmen zu ergreifen. Gemeinsam können wir Druck auf politische Entscheidungsträger ausüben.
+                </p>
+                <div class="about-stats fade-in delay-3">
+                    <div class="stat">
+                        <div class="stat-number">85M+</div>
+                        <div class="stat-label" data-de="Betroffene Menschen" data-en="People Affected">Betroffene Menschen</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" data-de="Internet-Blackout" data-en="Internet Blackout">Internet-Blackout</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label" data-de="Zugang zur Außenwelt" data-en="Access to Outside World">Zugang zur Außenwelt</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual fade-in delay-2">
+                <div class="about-visual-inner">
+                    <div class="about-visual-pattern"></div>
+                    <i class="fas fa-hand-holding-heart about-visual-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kit Section -->
+    <section class="kit" id="kit">
+        <div class="container">
+            <div class="kit-header">
+                <h2 class="fade-in" data-de="Social Media Awareness Kit" data-en="Social Media Awareness Kit">Social Media Awareness Kit</h2>
+                <p class="fade-in delay-1" data-de="Laden Sie unsere Grafiken herunter und teilen Sie sie auf Ihren sozialen Kanälen. Jede Stimme zählt." data-en="Download our graphics and share them on your social channels. Every voice counts.">
+                    Laden Sie unsere Grafiken herunter und teilen Sie sie auf Ihren sozialen Kanälen. Jede Stimme zählt.
+                </p>
+            </div>
+            <div class="kit-grid">
+                <div class="kit-card kit-card-1 fade-in">
+                    <div class="kit-card-inner">
+                        <div class="kit-card-number">1</div>
+                        <div class="kit-card-content">
+                            <h4 data-de="Was passiert gerade im Iran?" data-en="What's Happening in Iran Right Now?">Was passiert gerade im Iran?</h4>
+                            <p data-de="Aufmerksamkeit schaffen mit einer starken Headline" data-en="Create awareness with a strong headline">Aufmerksamkeit schaffen mit einer starken Headline</p>
+                        </div>
+                        <div class="kit-card-lang">
+                            <span>DE</span>
+                            <span>FA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kit-card kit-card-2 fade-in delay-1">
+                    <div class="kit-card-inner">
+                        <div class="kit-card-number">2</div>
+                        <div class="kit-card-content">
+                            <h4 data-de="Das Internet ist seit Tagen abgeschaltet" data-en="The Internet Has Been Shut Down for Days">Das Internet ist seit Tagen abgeschaltet</h4>
+                            <p data-de="Die Welt darf nicht wegschauen" data-en="The world must not look away">Die Welt darf nicht wegschauen</p>
+                        </div>
+                        <div class="kit-card-lang">
+                            <span>DE</span>
+                            <span>FA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kit-card kit-card-3 fade-in delay-2">
+                    <div class="kit-card-inner">
+                        <div class="kit-card-number">3</div>
+                        <div class="kit-card-content">
+                            <h4 data-de="Schreiben Sie an den Bundestag" data-en="Write to Parliament">Schreiben Sie an den Bundestag</h4>
+                            <p data-de="Besuchen Sie unsere Website. Link in Bio." data-en="Visit our website. Link in bio.">Besuchen Sie unsere Website. Link in Bio.</p>
+                        </div>
+                        <div class="kit-card-lang">
+                            <span>DE</span>
+                            <span>FA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kit-download fade-in delay-3">
+                <button class="kit-download-btn" id="downloadKit">
+                    <i class="fas fa-download"></i>
+                    <span data-de="Kit herunterladen (.zip)" data-en="Download Kit (.zip)">Kit herunterladen (.zip)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-inner">
+            <div class="contact-info">
+                <h2 class="fade-in" data-de="Kontaktieren Sie uns" data-en="Contact Us">Kontaktieren Sie uns</h2>
+                <p class="fade-in delay-1" data-de="Haben Sie Fragen, Anregungen oder möchten Sie sich engagieren? Schreiben Sie uns — wir antworten so schnell wie möglich." data-en="Do you have questions, suggestions, or want to get involved? Write to us — we'll respond as soon as possible.">
+                    Haben Sie Fragen, Anregungen oder möchten Sie sich engagieren? Schreiben Sie uns — wir antworten so schnell wie möglich.
+                </p>
+                <div class="contact-details fade-in delay-2">
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@iran-awareness.org</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Berlin, Deutschland</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form fade-in delay-2" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group">
+                    <label for="name" data-de="Name" data-en="Name">Name</label>
+                    <input type="text" id="name" name="name" required="" aria-label="Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-de="E-Mail-Adresse" data-en="Email Address">E-Mail-Adresse</label>
+                    <input type="email" id="email" name="email" required="" aria-label="Email">
+                </div>
+                <div class="form-group">
+                    <label for="subject" data-de="Betreff" data-en="Subject">Betreff</label>
+                    <input type="text" id="subject" name="subject" required="" aria-label="Subject">
+                </div>
+                <div class="form-group">
+                    <label for="message" data-de="Nachricht" data-en="Message">Nachricht</label>
+                    <textarea id="message" name="message" required="" aria-label="Message"></textarea>
+                </div>
+                <button type="submit" class="form-submit" data-de="Nachricht senden" data-en="Send Message">Nachricht senden</button>
+                <p class="form-privacy" data-de="Ihre Daten werden nur zur Beantwortung Ihrer Anfrage verwendet." data-en="Your data will only be used to respond to your inquiry.">
+                    Ihre Daten werden nur zur Beantwortung Ihrer Anfrage verwendet.
+                </p>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <span class="footer-logo">Iran Awareness</span>
+                <div class="footer-links">
+                    <a href="#" data-modal="impressum" data-de="Impressum" data-en="Legal Notice">Impressum</a>
+                    <a href="#" data-modal="datenschutz" data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-social">
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <span class="footer-copyright">© 2026 Iran Awareness</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Impressum Modal -->
+    <div class="modal-overlay" id="impressumModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-de="Impressum" data-en="Legal Notice">Impressum</h3>
+                <button class="modal-close" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4 data-de="Angaben gemäß § 5 TMG" data-en="Information according to § 5 TMG">Angaben gemäß § 5 TMG</h4>
+                <p>Iran Awareness Initiative<br>Musterstraße 123<br>10115 Berlin<br>Deutschland</p>
+
+                <h4 data-de="Kontakt" data-en="Contact">Kontakt</h4>
+                <p>E-Mail: info@iran-awareness.org</p>
+
+                <h4 data-de="Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV" data-en="Responsible for content according to § 55 Abs. 2 RStV">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
+                <p>Max Mustermann<br>Musterstraße 123<br>10115 Berlin</p>
+
+                <h4 data-de="Haftungsausschluss" data-en="Disclaimer">Haftungsausschluss</h4>
+                <p data-de="Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich." data-en="Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.">
+                    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div class="modal-overlay" id="datenschutzModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</h3>
+                <button class="modal-close" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4 data-de="1. Datenschutz auf einen Blick" data-en="1. Privacy at a Glance">1. Datenschutz auf einen Blick</h4>
+                <p data-de="Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen." data-en="The following information provides a simple overview of what happens to your personal data when you visit this website.">
+                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
+                </p>
+
+                <h4 data-de="2. Datenerfassung auf dieser Website" data-en="2. Data Collection on This Website">2. Datenerfassung auf dieser Website</h4>
+                <p data-de="Diese Website verwendet keine Cookies und sammelt keine persönlichen Daten automatisch. Personenbezogene Daten werden nur erhoben, wenn Sie uns diese über das Kontaktformular mitteilen." data-en="This website does not use cookies and does not automatically collect personal data. Personal data is only collected when you provide it to us via the contact form.">
+                    Diese Website verwendet keine Cookies und sammelt keine persönlichen Daten automatisch. Personenbezogene Daten werden nur erhoben, wenn Sie uns diese über das Kontaktformular mitteilen.
+                </p>
+
+                <h4 data-de="3. Kontaktformular" data-en="3. Contact Form">3. Kontaktformular</h4>
+                <p data-de="Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular einschließlich der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter." data-en="When you send us inquiries via the contact form, your information from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent.">
+                    Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular einschließlich der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+                </p>
+
+                <h4 data-de="4. Ihre Rechte" data-en="4. Your Rights">4. Ihre Rechte</h4>
+                <p data-de="Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten." data-en="You have the right to obtain free information about the origin, recipients, and purpose of your stored personal data at any time. You also have the right to rectification, blocking, or deletion of this data.">
+                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="alert-modal" id="alertModal">
+        <div class="alert-content">
+            <div class="alert-icon" id="alertIcon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h4 id="alertTitle">Title</h4>
+            <p id="alertMessage">Message</p>
+            <button class="alert-btn" id="alertBtn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Language handling
+        let currentLang = 'de';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Update all text elements
+            document.querySelectorAll('[data-de][data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+
+            // Update lang toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update page title
+            document.title = lang === 'de'
+                ? 'Iran Awareness | Was passiert gerade im Iran?'
+                : 'Iran Awareness | What\'s Happening in Iran Right Now?';
+        }
+
+        // Language toggle click handlers
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('active', menuOpen);
+            mobileMenuBtn.innerHTML = menuOpen
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Modal handling
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Modal triggers
+        document.querySelectorAll('[data-modal]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(trigger.dataset.modal + 'Modal');
+            });
+        });
+
+        // Modal close buttons
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                closeModal(btn.closest('.modal-overlay'));
+            });
+        });
+
+        // Close modal on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay);
+                }
+            });
+        });
+
+        // Custom alert function
+        function showAlert(title, message, type = 'success') {
+            const modal = document.getElementById('alertModal');
+            const icon = document.getElementById('alertIcon');
+            const titleEl = document.getElementById('alertTitle');
+            const messageEl = document.getElementById('alertMessage');
+            const btn = document.getElementById('alertBtn');
+
+            icon.className = 'alert-icon ' + type;
+            icon.innerHTML = type === 'success'
+                ? '<i class="fas fa-check"></i>'
+                : '<i class="fas fa-exclamation"></i>';
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+
+            modal.classList.add('active');
+
+            btn.onclick = () => {
+                modal.classList.remove('active');
+            };
+        }
+
+        // Close alert on overlay click
+        document.getElementById('alertModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                e.currentTarget.classList.remove('active');
+            }
+        });
+
+        // Form handling
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'de' ? 'Wird gesendet...' : 'Sending...';
+
+            // Simulate form submission (replace with actual Formspree endpoint)
+            try {
+                // For demo purposes, simulate a successful submission
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                showAlert(
+                    currentLang === 'de' ? 'Nachricht gesendet!' : 'Message Sent!',
+                    currentLang === 'de'
+                        ? 'Vielen Dank für Ihre Nachricht. Wir werden uns bald bei Ihnen melden.'
+                        : 'Thank you for your message. We will get back to you soon.',
+                    'success'
+                );
+
+                contactForm.reset();
+            } catch {
+                showAlert(
+                    currentLang === 'de' ? 'Fehler' : 'Error',
+                    currentLang === 'de'
+                        ? 'Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut.'
+                        : 'There was a problem sending your message. Please try again later.',
+                    'error'
+                );
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+
+        // Download Kit functionality
+        document.getElementById('downloadKit').addEventListener('click', async () => {
+            const btn = document.getElementById('downloadKit');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>' +
+                (currentLang === 'de' ? 'Wird vorbereitet...' : 'Preparing...') + '</span>';
+            btn.disabled = true;
+
+            try {
+                // Create SVG slides
+                const slides = [
+                    {
+                        bg: '#0A0A0A',
+                        title: currentLang === 'de' ? 'Was passiert\ngerade im Iran?' : 'What\'s Happening\nin Iran Right Now?',
+                        subtitle: 'iran-awareness.org'
+                    },
+                    {
+                        bg: '#E63946',
+                        title: currentLang === 'de' ? 'Das Internet ist\nseit Tagen\nabgeschaltet.' : 'The Internet Has\nBeen Shut Down\nfor Days.',
+                        subtitle: currentLang === 'de' ? 'Die Welt darf nicht wegschauen.' : 'The world must not look away.'
+                    },
+                    {
+                        bg: '#1A1A1A',
+                        title: currentLang === 'de' ? 'Schreiben Sie\nan den Bundestag' : 'Write to\nParliament',
+                        subtitle: currentLang === 'de' ? 'Besuchen Sie unsere Website.\nLink in Bio.' : 'Visit our website.\nLink in bio.'
+                    }
+                ];
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = 1080;
+                canvas.height = 1920;
+
+                const images = [];
+
+                for (let i = 0; i < slides.length; i++) {
+                    const slide = slides[i];
+
+                    // Clear and fill background
+                    ctx.fillStyle = slide.bg;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Add grid pattern
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.lineWidth = 1;
+                    for (let x = 0; x < canvas.width; x += 60) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, 0);
+                        ctx.lineTo(x, canvas.height);
+                        ctx.stroke();
+                    }
+                    for (let y = 0; y < canvas.height; y += 60) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, y);
+                        ctx.lineTo(canvas.width, y);
+                        ctx.stroke();
+                    }
+
+                    // Add number badge
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                    ctx.beginPath();
+                    ctx.arc(80, 100, 30, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 24px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText((i + 1).toString(), 80, 108);
+
+                    // Draw title
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 72px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    const lines = slide.title.split('\n');
+                    let y = canvas.height / 2 - (lines.length * 90) / 2;
+                    lines.forEach(line => {
+                        ctx.fillText(line, canvas.width / 2, y);
+                        y += 90;
+                    });
+
+                    // Draw subtitle
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.font = '32px Inter, sans-serif';
+                    const subtitleLines = slide.subtitle.split('\n');
+                    y = canvas.height - 200;
+                    subtitleLines.forEach(line => {
+                        ctx.fillText(line, canvas.width / 2, y);
+                        y += 45;
+                    });
+
+                    // Add language tags
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+                    ctx.roundRect(canvas.width / 2 - 60, canvas.height - 100, 50, 30, 15);
+                    ctx.fill();
+                    ctx.roundRect(canvas.width / 2 + 10, canvas.height - 100, 50, 30, 15);
+                    ctx.fill();
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                    ctx.font = '14px Inter, sans-serif';
+                    ctx.fillText('DE', canvas.width / 2 - 35, canvas.height - 80);
+                    ctx.fillText('FA', canvas.width / 2 + 35, canvas.height - 80);
+
+                    images.push(canvas.toDataURL('image/png'));
+                }
+
+                // Create download links for each image
+                images.forEach((dataUrl, index) => {
+                    const link = document.createElement('a');
+                    link.download = `iran-awareness-slide-${index + 1}.png`;
+                    link.href = dataUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+
+                showAlert(
+                    currentLang === 'de' ? 'Download gestartet!' : 'Download Started!',
+                    currentLang === 'de'
+                        ? '3 Grafiken werden heruntergeladen. Bitte überprüfen Sie Ihren Download-Ordner.'
+                        : '3 graphics are being downloaded. Please check your downloads folder.',
+                    'success'
+                );
+            } catch {
+                showAlert(
+                    currentLang === 'de' ? 'Fehler' : 'Error',
+                    currentLang === 'de'
+                        ? 'Es gab ein Problem beim Erstellen des Kits.'
+                        : 'There was a problem creating the kit.',
+                    'error'
+                );
+            } finally {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }
+        });
+
+        // Polyfill for roundRect if not supported
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                if (w < 2 * r) r = w / 2;
+                if (h < 2 * r) r = h / 2;
+                this.beginPath();
+                this.moveTo(x + r, y);
+                this.arcTo(x + w, y, x + w, y + h, r);
+                this.arcTo(x + w, y + h, x, y + h, r);
+                this.arcTo(x, y + h, x, y, r);
+                this.arcTo(x, y, x + w, y, r);
+                this.closePath();
+                return this;
+            };
+        }
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal);
+                });
+                document.getElementById('alertModal').classList.remove('active');
+            }
+        });
+    </script>
+
+
+
+</body></html>
